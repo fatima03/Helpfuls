@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Firebase Test</title>
+</head>
+<body> Hello
+
+
+
+<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDlaitmmD9_yIw_XDWwEBekOa9ea2A7AfE",
+    authDomain: "fm-portfolio-41011.firebaseapp.com",
+    databaseURL: "https://fm-portfolio-41011.firebaseio.com",
+    projectId: "fm-portfolio-41011",
+    storageBucket: "fm-portfolio-41011.appspot.com",
+    messagingSenderId: "778387058548",
+    appId: "1:778387058548:web:96b25030077f7b9b9a4621",
+    measurementId: "G-KE9ZLXJMSB"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();</script>
+
+  <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-database.js"></script>
+  <script>
+
+  firebase.database().ref("User2").set({
+  	name: "Ayman",
+  	age: "29"
+  });
+
+  firebase.database().ref("/").once('value', function(snapshot){
+  	snapshot.forEach(function(childSnapshot){
+  		var childKey = childSnapshot.key;
+  		var childData = childSnapshot.val();
+  		document.write(childData['name']+" , "+childData['age']+"<br>");
+  	})
+  })
+
+</script>
+
+</body>
+</html>
